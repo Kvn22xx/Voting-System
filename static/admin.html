@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+        <meta charset="UTF-8">
+        <title>Online Election System</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+    />
+    <body>
+        <img class="logo" src="Picts/220px-PSG_College_of_Technology_logo.png">
+        <div class="logout">
+            <button type="button" id="logout"> Log Out</button>
+        </div>
+        <h1 class="header">
+            Welcome Admin!
+        </h1>
+        <div class="content">
+            <div class="inner">
+                <div class="top">
+                    <div id="btn1">
+
+                    </div>
+                    <!-- <button type="button" class="toggle-btn1" onclick="create()"> Create Election</button> -->
+                    <button type="button" class="toggle-btn1" onclick="add()" > Add Candidate</button>
+                    <button type="button" class="toggle-btn1" onclick="check()"> Check Result</button>
+                </div>
+                <div id="add" class="addcad">
+                    <form id="add-candidate" class="input-group2">
+                        <h2> Name</h2>
+                        <input type="text" id="name-cand" class="input-field" placeholder="" required>
+                        <h2>Candidate ID</h2>
+                        <input type="text" id="id-cand" class="input-field" placeholder="" required>
+                        <h2>Department</h2>
+                        <input type="text"  id="dept-id" class="input-field" placeholder="" required>
+                        <button type="submit" class="submit-btn" onclick="win()"> Add Candidate</button>
+                    </form>
+                    </section>
+                </div>
+                <div id="final" class="cresult">
+                    <button type="button" class="win" id="myButton"> Click to find the winner</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var y = document.getElementById("add");
+            var z = document.getElementById("btn1");
+            var p = document.getElementById("final");
+            function add()
+            {
+                y.style.left ="30px";
+                z.style.left = "0px";
+                p.style.left = "1000px"
+            }
+            function check()
+            { 
+                y.style.left = "-3000px";  
+                p.style.left = "20px";
+                z.style.left = "330px";
+            }
+            
+            document.getElementById("myButton").onclick = function () 
+            {
+                location.href = "http://localhost:3000/winner.html";
+            };
+            const form = document.getElementById('add-candidate')
+            form.addEventListener('submit', addcandidate)
+
+            async function addcandidate(event){
+                event.preventDefault()
+                const Name = document.getElementById('name-cand').value
+                const ID = document.getElementById('id-cand').value
+                const Department = document.getElementById('dept-id').value
+
+                const result = await fetch('http://localhost:3000/api/candidate',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Name,
+                        ID,
+                        Department     
+                    })
+                }).then((res) => res.json())
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+            }
+
+            document.getElementById("logout").onclick = async function()
+            {
+                location.replace("http://localhost:3000/index.html")
+            }
+
+        </script>
+    </body>
+</html>

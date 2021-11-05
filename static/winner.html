@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Winner of Election</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+    />
+    <body>
+        <img class="logo" src="Picts/220px-PSG_College_of_Technology_logo.png">
+        <div class="logout">
+            <button type="button" id="logout"> Home</button>
+        </div>
+        <h1 class="header">
+            The Elected Winner is...
+        </h1>
+        <div class="bg">
+            <img class="confetti" src="Picts/confetti.png">
+            <div id="winner">
+
+            </div>
+
+        </div>
+    </body>
+    <script>
+        window.onload = async function display(){
+            const disp= await fetch ('http://localhost:3000/api/load',{
+                method: 'GET',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+            }).then(async(res) => {
+                var array=[]
+                array= await res.json();
+                var mainContainer = document.getElementById("winner");
+                var div = document.createElement("div");
+                div.innerHTML= 'Name: ' + array[0].Name + '<br>ID: ' + array[0].ID + '<br>Department: ' +array[0].Department;
+                mainContainer.appendChild(div)
+            })
+        }
+
+        document.getElementById("logout").onclick = async function()
+            {
+                location.replace("http://localhost:3000/index.html")
+            }
+    </script>
+</html>

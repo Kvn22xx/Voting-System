@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Online Election System</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+    />
+    <body>
+        <img class="logo" src="Picts/220px-PSG_College_of_Technology_logo.png">
+        <div class="logout">
+            <button type="button" id="logout"> Log Out</button>
+        </div>
+        <h1 class="header">
+            Hello Voter!
+        </h1>
+        <div class="bg">
+            <div class="upper">
+                <h1> Cast Vote</h1>
+                <p> Who should be the Class Representative?</p>
+            </div>
+            <div class="disp">
+                <div class="left">
+                    <div id="mydata" >
+
+                    </div>
+                    <button type="button" id="num1" onclick="vote"> Vote </button>
+                </div>
+                <div class="mid" >
+                    <div id="my-other-data" >
+
+                    </div>
+                    <button type="button" id="num2"> Vote </button>
+                </div>
+                <div class="right">
+                    <div id="my-third-data" >
+
+                    </div>
+                    <button type="button" id="num3"> Vote </button>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.onload = async function hello(){
+                const result = await fetch('http://localhost:3000/api/get',{
+                method: 'GET',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                }).then(async(res) => {
+                    var array = []
+                    array = await res.json()
+                    var mainContainer = document.getElementById("mydata");
+                    var div = document.createElement("div");
+                    div.innerHTML= 'Name: ' + array[0].Name + '<br>ID: ' + array[0].ID + '<br>Department: ' +array[0].Department;
+                    mainContainer.appendChild(div)
+
+                    var mainContainer = document.getElementById("my-other-data");
+                    var div = document.createElement("div");
+                    div.innerHTML= 'Name: ' + array[1].Name + '<br>ID: ' + array[1].ID + '<br>Department: ' +array[1].Department;
+                    mainContainer.appendChild(div)
+
+                    var mainContainer = document.getElementById("my-third-data");
+                    var div = document.createElement("div");
+                    div.innerHTML= 'Name: ' + array[2].Name + '<br>ID: ' + array[2].ID + '<br>Department: ' +array[2].Department;
+                    mainContainer.appendChild(div)
+                }).catch((error) => {
+                    console.log('Error')
+                    console.log(error)
+                })
+            }
+            document.getElementById("num1").onclick = async function () 
+            {
+                const result = await fetch('http://localhost:3000/api/get',{
+                    method: 'GET',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                }).then(async(res) => {
+                    var array = []
+                    array = await res.json()
+                    const Iden = array[0].ID;
+                    const resu = await fetch('http://localhost:3000/api/cast',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Iden
+                    })
+                }).then((res) => res.json())
+                if (resu.status === 'ok') {
+					// everythign went fine
+					location.replace("http://localhost:3000/index.html")
+				} else {
+					alert(result.error)
+				}
+                })
+            }
+
+
+            document.getElementById("num2").onclick = async function () 
+            {
+                const result = await fetch('http://localhost:3000/api/get',{
+                    method: 'GET',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                }).then(async(res) => {
+                    var array = []
+                    array = await res.json()
+                    const Iden = array[1].ID;
+                    const resu = await fetch('http://localhost:3000/api/cast',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Iden
+                    })
+                }).then((res) => res.json())
+                if (resu.status === 'ok') {
+					// everythign went fine
+					location.replace("http://localhost:3000/index.html")
+				} else {
+					alert(result.error)
+				}
+                })
+            }
+
+
+            document.getElementById("num3").onclick = async function () 
+            {
+                const result = await fetch('http://localhost:3000/api/get',{
+                    method: 'GET',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                }).then(async(res) => {
+                    var array = []
+                    array = await res.json()
+                    const Iden = array[2].ID;
+                    const resu = await fetch('http://localhost:3000/api/cast',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Iden
+                    })
+                }).then((res) => res.json())
+                if (resu.status === 'ok') {
+					// everythign went fine
+					location.replace("http://localhost:3000/index.html")
+				} else {
+					alert(result.error)
+				}
+                })
+            }
+
+            document.getElementById("logout").onclick = async function()
+            {
+                location.replace("http://localhost:3000/index.html")
+            }
+
+
+        </script>
+
+    </body>
+</html>

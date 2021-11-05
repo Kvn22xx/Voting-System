@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:poppins ;
+}
+body {
+    margin: 0;
+}
+
+.header{
+    text-align:center;
+    background-color:#eb7c7c;
+    color:white;
+    font-size: 50px;
+    padding: 20px;
+    height: 180px;
+    padding-top: 60px;
+}
+
+.header img{
+    position: absolute;
+}
+
+.logo{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-bottom: 20px;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #EBEBEB;
+    display: flex;
+}
+
+.main-left{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.main-left img{
+    height: 700px;
+}
+
+.main-right{
+    width: 1500px;
+    height: 100vh;
+    background-color:#EBEBEB;
+    display: flex;
+    justify-content: center;
+}
+
+.form-box{
+    position:relative;
+    width: 600px;
+    background-color: #EBEBEB;
+    top: 60px;
+    overflow: hidden;
+}
+
+.button-box{
+    width: 600px;
+    height: 90px;
+    position: relative;
+    background:white;
+    border-radius: 30px;
+}
+
+.button-box1{
+    top: 10px;
+    width: 300px;
+    height: 50px;
+    position: relative;
+    background:white;
+    border-radius: 30px;
+    left: 60px;
+}
+.toggle-btn{
+    padding: 25px 90px;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    outline: none;
+    border: 0;
+    font-size: 30px;
+    color: black;
+}
+
+.toggle-btn-1 {
+    padding: 10px 43px;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    outline: none;
+    border: 0;
+    font-size: 20px;
+    color: black;
+}
+
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: #F46E6E;
+    height: 100%;
+    width: 300px;
+    border-radius: 30px;
+    transition: .5s;
+    border: 3px solid #000000;
+}
+
+#btn-1{
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: #F46E6E;
+    height: 100%;
+    width: 160px;
+    border-radius: 30px;
+    transition: .5s;
+    border: 1px solid #000000;
+}
+#btn1{
+    position: absolute;
+    background: #F46E6E;
+    width: 330px;
+    height: 100%;
+    border-radius: 30px;
+    transition: .5s;
+    border: 3px solid #000000;
+}
+
+.lower{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 0%, rgba(197, 197, 197, 0.42) 47.4%, #C5C5C5 100%);
+    height: 450px;
+    border-radius: 52px;
+    top: 20px;
+    position: relative;
+    border: 3px solid #000000
+}
+
+.input-group{
+    top: 10px;
+    left: 165px;
+    position: absolute;
+    width: 300px;
+    transition: .5s;
+}
+
+.input-field{
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    font-size: 20px;
+}
+
+.input-group h2{
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.submit-btn{
+    top: 30px;
+    left: 50px;
+    width: 300px;
+    height: 55px;
+    padding: 0px 30px;
+    cursor: pointer;
+    background: #F46E6E;
+    display: block;
+    border: 0;
+    outline: none;
+    position: relative;
+    border-radius: 27.5px;
+    font-size: 20px;
+    color:white;
+}
+
+#register{
+    left: 1000px;
+}
+#login{
+    left: 100px;
+}
+
+.content{
+    background-color: #E5E5E5;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.top{        
+    position:relative;
+    width: 660px;
+    background-color: white;
+    top: 30px;
+    height: 90px;
+    border-radius: 30px;
+}
+
+.toggle-btn1{
+    padding: 20px 50px;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    outline: none;
+    border: 0;
+    font-size: 30px;
+    color: black;
+}
+
+.bottom{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 0%, rgba(197, 197, 197, 0.42) 47.4%, #C5C5C5 100%);
+    height: 500px;
+    border-radius: 52px;
+    width: 600px;
+    top: 140px;
+    position: absolute;
+    border: 3px solid #000000;
+    margin-right: 0;
+    overflow: scroll;
+    transition: 0.5s;
+}
+.inner{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.input-group1{
+    top: 10px;
+    left: 100px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-group1 h2{
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.addcad{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 0%, rgba(197, 197, 197, 0.42) 47.4%, #C5C5C5 100%);
+    height: 450px;
+    border-radius: 52px;
+    width: 600px;
+    top: 140px;
+    position: absolute;
+    border: 3px solid #000000;
+    margin-right: 0;
+    transition: 0.5s;
+    justify-content: center;
+}
+
+.mainsec{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.sec-left{
+    width: 900px;
+    height: 100vh;
+}
+
+.input-group2{
+    position: absolute;
+    top: 30px;
+    margin-left: 100px;
+}
+
+
+.input-field1{
+    height:141px;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.sec-right{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#add{
+    left: 30px;
+}
+
+#create{
+    left: 200px;
+}
+
+.bg{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #E5E5E5;
+}
+
+.upper{
+    position: relative;
+    text-align: center;
+    top: 20px;
+}
+
+.upper h1{
+    font-size: 40px;
+}
+
+.upper p{
+    padding-top: 10px;
+    font-size: 40px;
+}
+
+.cresult{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 0%, rgba(197, 197, 197, 0.42) 47.4%, #C5C5C5 100%);
+    height: 200px;
+    border-radius: 52px;
+    width: 600px;
+    top: 130px;
+    position: absolute;
+    border: 3px solid #000000;
+    margin-right: 0;
+    transition: 0.5s;
+}
+
+.cresult input{
+    top: 30px;
+    left: 100px;
+    height: 50px;
+    position: relative;
+    width: 400px;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    font-size: 20px;
+    text-align: center;
+}
+  .cresult h2{
+      position: relative;
+      left: 100px;
+      top: 30px;
+  }
+
+  #final{
+      left: 1000px;
+  }
+
+.disp{
+    display: flex;
+    flex-direction: row;
+}
+.left{
+    top: 50px;
+    height: 400px;
+    background-color: #F46E6E;
+    width: 500px;
+    left: 90px;
+    position: relative;
+    border: 3px solid #000000;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+    border-radius: 30px;
+}
+
+.mid {
+    top: 50px;
+    position: relative;
+    height: 400px;
+    background-color: #F46E6E;
+    width: 500px;
+    left: 180px;
+    border: 3px solid #000000;
+    border-radius: 30px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+}
+
+.right{
+    top: 50px;
+    position: relative;
+    height: 400px;
+    background-color: #F46E6E;
+    width: 500px;
+    left: 270px;
+    border: 3px solid #000000;
+    border-radius: 30px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+}
+
+#admin-login{
+    top: 60px;
+    left: 700px;
+}
+
+#voter-log{
+    position: relative;
+    transition: .5s;
+}
+
+.left button{
+    position: relative;
+    top: 170px;
+    left: 140px;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(122, 218, 221);
+    border: 3px solid red;
+    border-radius: 20px;
+    font-size: 30px;
+    color:black;
+    cursor: pointer;
+}
+
+.mid button{
+    position: relative;
+    top: 170px;
+    left: 140px;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(122, 218, 221);
+    border: 3px solid red;
+    border-radius: 20px;
+    font-size: 30px;
+    color:black;
+    cursor: pointer;
+}
+
+.right button{
+    position: relative;
+    top: 170px;
+    left: 140px;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(122, 218, 221);
+    border: 3px solid red;
+    border-radius: 20px;
+    font-size: 30px;
+    color:black;
+    cursor: pointer;
+}
+
+#mydata{
+    border: 3px solid black;
+    width: 300px;
+    position: relative;
+    left: 100px;
+    height: 150px;
+    padding-left: 20px;
+    color: black;
+    font-size: 30px;
+    font-weight: 500;
+    top: 60px;
+    border-radius: 30px;
+    background: rgb(235, 172, 172);
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,1);
+}
+
+#my-other-data{
+    border: 3px solid black;
+    width: 300px;
+    position: relative;
+    left: 100px;
+    height: 150px;
+    padding-left: 20px;
+    color: black;
+    font-size: 30px;
+    top: 60px;
+    font-weight: 500;
+    border-radius: 30px;
+    background: rgb(235, 172, 172);
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,1);
+}
+
+#my-third-data{
+    border: 3px solid black;
+    width: 300px;
+    position: relative;
+    left: 100px;
+    height: 150px;
+    padding-left: 20px;
+    color: black;
+    font-size: 30px;
+    top: 60px;
+    font-weight: 500;
+    border-radius: 30px;
+    background: rgb(235, 172, 172);
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,1);
+}
+
+
+#winner{
+    top: 80px;
+    height: 400px;
+    background-color: #F46E6E;
+    width: 650px;
+    left: 580px;
+    position: relative;
+    border: 3px solid #000000;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+    border-radius: 30px;
+}
+
+#winner div{
+    position: relative;
+    left: 120px;
+    top: 70px;
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.win{
+    height: 50px;
+    width: 300px;
+    position: relative;
+    text-align: center;
+    left: 150px;
+    top: 65px;
+    background-color: #F46E6E;
+    color: white;
+    border: 3px solid #000000;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.logout{
+    position: absolute;
+    text-align: right;
+    right: 60px;
+    top: 70px;
+}
+
+.logout button{
+    font-size: 40px;
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(238, 87, 87);
+    transform:
+    perspective(800px)
+    scale(0.9)
+    rotateX(10deg);
+    opacity: 0.9;
+    transition: 0.6s
+    ease all;
+}
+.logout button:hover{
+    transform:
+    perspective(800px)
+    translateY(-20px)
+    scale(1);
+    filter:blur(0);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.confetti{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+}

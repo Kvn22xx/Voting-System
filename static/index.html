@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Online Election System</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+    />
+    <body>
+        <img class="logo" src="Picts/220px-PSG_College_of_Technology_logo.png">
+        <h1 class="header">
+            Online Election 
+        </h1>
+        <section class="main">
+            <div class="main-left">
+                <img src="Picts/Group 1.png">
+            </div>
+            <div class="main-right">
+                <div class="form-box">
+                    <div class="button-box">
+                        <div id="btn">
+
+                        </div>
+                        <button type="button" class="toggle-btn" onclick="login()"> Log in</button>
+                        <button type="button" class="toggle-btn" onclick="register()"> Register</button>
+                    </div>
+                    <div class="lower">
+                        <form id="login" class="input-group">
+                            <div class="button-box1">
+                                <div id="btn-1">
+
+                                </div>
+                                <button type="button" class="toggle-btn-1" onclick="voter()" >Voter</button>
+                                <button type="button" class="toggle-btn-1" onclick="admin()"> Admin</button>
+                            </div>
+                            <div id="voter-log">
+                                <h2> Username</h2>
+                                <input type="text" id="logus" class="input-field" placeholder="User ID" required>
+                                <h2> Password</h2>
+                                <input type="text" id="logpas" class="input-field" placeholder="Enter Password" required>
+                                <button type="submit" class="submit-btn"> Log in</button>
+                            </div>
+                        </form>
+                        <form id="register" class="input-group">
+                            <h2> Username</h2>
+                            <input type="text" id="username" class="input-field" placeholder="User ID" required>
+                            <h2> Password</h2>
+                            <input type="text" id="password" class="input-field" placeholder="Enter Password" required>
+                            <h2> Re-Type Password</h2>
+                            <input type="text" class="input-field" placeholder="Type Your Password Again" required>
+                            <button type="submit" class="submit-btn"> Register</button>
+                        </form>
+                        <form id="admin-login" class="input-group">
+                            <h2> Admin Username</h2>
+                            <input type="text" id="adus" class="input-field" placeholder="Admin ID" required>
+                            <h2> Admin Password</h2>
+                            <input type="text" id="adpas" class="input-field" placeholder="Enter Password" required>
+                            <button type="submit" class="submit-btn"> Log in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            var x = document.getElementById("login");
+            var y = document.getElementById("register");
+            var z = document.getElementById("btn");
+            var a = document.getElementById("btn-1");
+            var b = document.getElementById("voter-log");
+            var c = document.getElementById("admin-login");
+
+            function admin()
+            {
+                a.style.left = "140px";
+                c.style.left = "100px";
+                b.style.left = "-700px";
+            }
+
+            function voter()
+            {
+                a.style.left = "0px";
+                b.style.left = "0px";
+                c.style.left = "700px";
+            }
+            function register()
+            {
+                x.style.left = "-1000px";
+                y.style.left = "100px";
+                z.style.left = "300px";
+                c.style.left= "-700px";
+            }
+            function login()
+            {
+                x.style.left = "100px";
+                y.style.left = "1000px";
+                z.style.left = "0px";
+                c.style.left = "700px";
+                b.style.left = "0px";
+                a.style.left = "0px";
+            }
+
+            const form = document.getElementById('register')
+            form.addEventListener('submit', registeruser)
+
+            async function registeruser(event){
+                event.preventDefault()
+                const username = document.getElementById('username').value
+                const password = document.getElementById('password').value
+
+                const result = await fetch('http://localhost:3000/api/register',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password       
+                    })
+                }).then((res) => res.json())
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+            }
+
+
+
+            const f = document.getElementById('login')
+            f.addEventListener('submit', loginuser  )
+            async function loginuser(e){
+                e.preventDefault()
+                const username = document.getElementById('logus').value
+                const password = document.getElementById('logpas').value
+            
+                const results = await fetch('http://localhost:3000/api/login',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username,
+                            password       
+                        })
+                    }).then((res) => res.json())
+                if (results.status === 'ok') {
+                    location.replace("http://localhost:3000/voter.html")
+                }
+                else
+                {
+                    alert("Invalid Username/Password")
+                } 
+            }
+
+
+            const g = document.getElementById('admin-login')
+            g.addEventListener('submit', adminuser)
+            async function adminuser(e)
+            {
+                e.preventDefault()
+                const username = document.getElementById('adus').value
+                const password = document.getElementById('adpas').value
+
+                const results = await fetch('http://localhost:3000/api/adminlogin',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username,
+                            password       
+                        })
+                    }).then((res) => res.json())
+                if (results.status === 'ok') {
+                    location.replace("http://localhost:3000/admin.html")
+                }
+                else
+                {
+                    alert("Invalid Username/Password")
+                } 
+            }
+        </script>
+    </body> 
+</html>
